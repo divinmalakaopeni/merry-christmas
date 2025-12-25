@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas - Raining Stars & Christmas Tree</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: radial-gradient(circle at top, #0c1445 0%, #020617 100%);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* --- CHRISTMAS TREE CSS --- */
+        .tree-container {
+            margin-top: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .star-top {
+            color: gold;
+            font-size: 2rem;
+            text-shadow: 0 0 20px gold;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        .tree-layer {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 40px solid #064e3b;
+            margin-top: -15px;
+            filter: drop-shadow(0 0 10px #059669);
+            position: relative;
+        }
+
+        .layer-2 { border-left-width: 45px; border-right-width: 45px; border-bottom-width: 55px; }
+        .layer-3 { border-left-width: 60px; border-right-width: 60px; border-bottom-width: 70px; }
+
+        .trunk {
+            width: 20px;
+            height: 20px;
+            background: #4527a0;
+            margin-top: -2px;
+        }
+
+        /* Twinkling lights on tree */
+        .tree-layer::after {
+            content: '•';
+            position: absolute;
+            color: red;
+            top: 20px;
+            left: -5px;
+            text-shadow: 10px 5px green, -10px 5px yellow, 0px 15px white;
+            animation: blink 0.8s infinite;
+        }
+        /* --- END TREE CSS --- */
+
+        h1 {
+            margin-top: 10px;
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: #ffd700;
+            text-align: center;
+            z-index: 100;
+            text-shadow: 0 0 15px #ff0000;
+            animation: pulse 2.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); text-shadow: 0 0 10px #ff0000; }
+            to { transform: scale(1.05); text-shadow: 0 0 30px #ffd700, 0 0 10px #fff; }
+        }
+
+        .message-wrapper {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .message {
+            max-width: 750px;
+            padding: 35px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+        }
+
+        .message p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            line-height: 1.7;
+            color: #f0f9ff;
+            margin: 0;
+        }
+
+        .highlight { color: #00f2ff; font-weight: bold; }
+        .love { color: #ff4d4d; font-family: 'Great Vibes', cursive; font-size: 2rem; }
+
+        .name {
+            position: absolute;
+            top: -100px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #ffffff;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: rainDown linear forwards;
+        }
+
+        @keyframes rainDown {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(110vh) rotate(15deg); opacity: 0; }
+        }
+
+        .star-decoration {
+            font-size: 0.8em;
+            color: #ffd700;
+            text-shadow: 0 0 8px #fff;
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            from { opacity: 0.4; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1.2); }
+        }
+
+        footer {
+            margin-bottom: 20px;
+            letter-spacing: 5px;
+            color: #ffd700;
+            font-weight: bold;
+            z-index: 100;
+            text-shadow: 0 0 5px black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tree-container">
+        <div class="star-top">★</div>
+        <div class="tree-layer"></div>
+        <div class="tree-layer layer-2"></div>
+        <div class="tree-layer layer-3"></div>
+        <div class="trunk"></div>
+    </div>
+
+    <h1>Merry Christmas to You All Magis Club</h1>
+
+    <div class="message-wrapper">
+        <div class="message">
+            <p>
+                I wish you a very <strong>Merry Christmas</strong>.<br><br>
+                May you become better <span class="highlight">Engineers</span> — the world and the Congo need you to make the world a better place with 
+                valuable services.<br><br>
+                Above all, may your lives be filled with <span class="love">Love ❤️</span>
+            </p>
+        </div>
+    </div>
+
+    <footer>✨ PEACE • JOY • HOPE • LOVE ✨</footer>
+
+    <script>
+        const names = [
+            "Eliel","Blanche","Perle","Michelange","Eunice","Michael","Pascal","Kaizen",
+            "Amelia","Armel","Beni","Benjamin","Caleb","Carlotta","Christian","Claude",
+            "Claudel","Clifford","Don Beni","Dorian","Elie","Gaby","Gaetan","Hadassa",
+            "Isaac","Jean-winner","Jean-Luc","John","Laurent-mary","Magis","Marguerite",
+            "Marie-Joyeuse","Miradi","Nathan","Nancy","Nicole","Orcin","Rene","Rolly",
+            "Roxanne","Segolene","Shekinah","Tamar","Vincent","Andy","Annabel","Audry",
+            "Ben","Chancelier","Daniella","David","Davina","Dunia","Enock","Ephraim",
+            "Grace","Hunter","Isaa","Jehnisi","Joel","Jojo","Jovanie","Kedihm","Lesick",
+            "Malkia","Mica","Nehemie","Prince","Providential"
+        ];
+
+        function createRainingName() {
+            const container = document.createElement("div");
+            container.className = "name";
+            
+            const colors = ['#00f2ff', '#ffd700', '#ffffff', '#ff4d4d'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+
+            container.innerHTML = `
+                <span class="star-decoration">✦</span>
+                <span style="color: ${color}; text-shadow: 0 0 10px ${color}">${names[Math.floor(Math.random() * names.length)]}</span>
+                <span class="star-decoration">✦</span>
+            `;
+
+            container.style.left = Math.random() * 95 + "vw";
+            const duration = 6 + Math.random() * 8;
+            container.style.animationDuration = duration + "s";
+            container.style.fontSize = (0.8 + Math.random() * 0.7) + "em";
+
+            document.body.appendChild(container);
+            setTimeout(() => container.remove(), duration * 1000);
+        }
+
+        function createBackgroundStar() {
+            const star = document.createElement("div");
+            star.innerHTML = "★";
+            star.style.position = "absolute";
+            star.style.color = "white";
+            star.style.opacity = Math.random();
+            star.style.left = Math.random() * 100 + "vw";
+            star.style.top = Math.random() * 100 + "vh";
+            star.style.fontSize = Math.random() * 5 + "px";
+            star.style.zIndex = "0";
+            document.body.appendChild(star);
+        }
+
+        for(let i=0; i<100; i++) createBackgroundStar();
+        setInterval(createRainingName, 450);
+    </script>
+</body>
+</html>
